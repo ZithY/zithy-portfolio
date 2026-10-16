@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — ZithY Web Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <header class="l-nav" id="nav"><div class="in">
+    <a class="l-brand" href="index.html"><span class="l-mark">Z_</span><span class="l-name">ZithY Web Studio</span></a>
+    <nav class="l-links"><a href="work.html">Work</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a class="l-link" href="contact.html">Contact</a></nav>
+  </div></header>
+
+  <main>
+    <section class="l-page">
+      <span class="l-eyebrow">Contact</span>
+      <h1>Your business deserves <em>a great website</em></h1>
+      <p class="sub">Tell me a bit about your business and what you're after, and I'll get back to you with ideas and a fixed quote. No pressure, no obligation.</p>
+    </section>
+
+    <section class="l-sec">
+      <div class="l-contact">
+        <form class="l-card top l-form" id="form">
+          <div class="l-row">
+            <label>Your name<input name="name" required autocomplete="name"></label>
+            <label>Business name<input name="business" required autocomplete="organization"></label>
+          </div>
+          <div class="l-row">
+            <label>Email or WhatsApp number<input name="reach" required></label>
+            <label>Package
+              <select name="plan" id="plan">
+                <option>Not sure yet</option><option data-price="1250">Digital Business Card</option><option data-price="1950">Starter</option><option data-price="3950">Business</option><option data-price="7500">Premium</option>
+              </select>
+            </label>
+          </div>
+          <div class="l-field">
+            <span class="l-legend">Add-ons <em>optional</em></span>
+            <div class="l-addons">
+              <div class="l-addon" data-name="Extra page" data-price="350">
+                <label class="l-addon-main"><input type="checkbox" name="addon"><span class="l-box"></span><span class="l-addon-text"><b>Extra page</b><small>Add more pages to your package</small></span><span class="l-addon-price">R350 each</span></label>
+                <div class="l-qty" hidden><button type="button" data-d="-1" aria-label="Fewer pages">–</button><output>1</output><button type="button" data-d="1" aria-label="More pages">+</button><span>pages</span></div>
+              </div>
+              <div class="l-addon" data-name="Logo design" data-price="400">
+                <label class="l-addon-main"><input type="checkbox" name="addon"><span class="l-box"></span><span class="l-addon-text"><b>Logo design</b><small>A logo made for your business</small></span><span class="l-addon-price">R400</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="l-total" id="total" hidden></div>
+          <label>About your project<textarea name="msg" required placeholder="What does your business do, and what do you need?"></textarea></label>
+          <button class="l-btn" type="submit">Send message →</button>
+          <span class="hint">This opens your email app with the message filled in.</span>
+        </form>
+      </div>
+
+      <div class="l-direct">
+        <div class="l-rule">Prefer to talk directly?</div>
+        <div class="l-direct-row">
+          <a href="tel:+27694518820"><span class="l-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>Call</a>
+          <a class="wa" href="https://wa.me/27694518820" target="_blank" rel="noopener"><span class="l-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><g transform="translate(6.5 6.5) scale(0.46)"><path stroke-width="3.4" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></g></svg></span>WhatsApp</a>
+          <a href="mailto:zithywebstudio@gmail.com"><span class="l-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>Email</a>
+        </div>
+        <p class="l-base">Based in North-West, South Africa</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="l-foot">
+    <div class="l-foot-word">ZithY Web Studio<span class="l-glow"></span></div>
+    <div class="l-foot-contact">
+      <a href="https://wa.me/27694518820" target="_blank" rel="noopener"><span>WhatsApp</span> 069 451 8820</a>
+      <a href="mailto:zithywebstudio@gmail.com"><span>Email</span> zithywebstudio@gmail.com</a>
+    </div>
+    <div class="l-foot-meta">
+      <nav><a href="work.html">Work</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+      <p>© <span id="yr">2026</span> ZithY Web Studio · North-West, South Africa</p>
+    </div>
+  </footer>
+  <script src="js/bg2.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+    // pre-select the package when arriving from the pricing page (?plan=Starter)
+    const want = new URLSearchParams(location.search).get('plan');
+    const sel = document.getElementById('plan');
+    if (want) [...sel.options].forEach((o) => { if (o.text === want) sel.value = o.text; });
+    sel.dispatchEvent(new Event('change'));
+
+    const money = (n) => 'R' + n.toLocaleString('en-ZA').replace(/\s|\u00a0/g, ',');
+    const addons = [...document.querySelectorAll('.l-addon')];
+    const totalEl = document.getElementById('total');
+
+    // selected add-ons as [{ name, qty, cost }]
+    const picked = () => addons.filter((el) => el.querySelector('input').checked).map((el) => {
+      const out = el.querySelector('output');
+      const qty = out ? Number(out.textContent) : 1;
+      return { name: el.dataset.name, qty, cost: qty * Number(el.dataset.price) };
+    });
+    const pkgPrice = () => Number(sel.options[sel.selectedIndex].dataset.price || 0);
+    const label = (x) => (x.qty > 1 ? x.qty + ' × ' : '') + x.name;
+    const refresh = () => {
+      const list = picked(), extras = list.reduce((n, x) => n + x.cost, 0), pkg = pkgPrice();
+      totalEl.hidden = !(pkg || extras);
+      totalEl.innerHTML = '<span>Estimated total</span><strong>' + money(pkg + extras) + '</strong><small>'
+        + (pkg ? sel.value + ' · ' + money(pkg) : 'No package selected') + list.map((x) => ' + ' + label(x)).join('') + '</small>';
+    };
+
+    addons.forEach((el) => {
+      const box = el.querySelector('input'), qty = el.querySelector('.l-qty');
+      box.addEventListener('change', () => { el.classList.toggle('on', box.checked); if (qty) qty.hidden = !box.checked; refresh(); });
+      if (qty) qty.addEventListener('click', (e) => {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+        const out = qty.querySelector('output');
+        out.textContent = Math.min(10, Math.max(1, Number(out.textContent) + Number(btn.dataset.d)));
+        refresh();
+      });
+    });
+    sel.addEventListener('change', refresh);
+    sel.addEventListener('input', refresh);
+    refresh();
+
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const d = new FormData(e.target), list = picked(), extras = list.reduce((n, x) => n + x.cost, 0), pkg = pkgPrice();
+      const lines = [
+        'Name: ' + d.get('name'),
+        'Business: ' + d.get('business'),
+        'Contact: ' + d.get('reach'),
+        'Package: ' + d.get('plan') + (pkg ? ' (' + money(pkg) + ')' : ''),
+        'Add-ons: ' + (list.length ? list.map((x) => label(x) + ' (' + money(x.cost) + ')').join(', ') : 'none'),
+      ];
+      if (pkg || extras) lines.push('Estimated total: ' + money(pkg + extras));
+      const body = lines.join('\n') + '\n\n' + d.get('msg');
+      location.href = 'mailto:zithywebstudio@gmail.com?subject=' + encodeURIComponent('Website enquiry from ' + d.get('business')) + '&body=' + encodeURIComponent(body);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# local-only: scratch mockups, old drafts, personal photos, preview server and editor config
+*-mockups.html
+mockups.html
+old-index.html
+assets/
+js/bg.js
+js/main.js
+serve.cjs
+.claude/
+work/mst-preview.webp
