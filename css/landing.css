@@ -298,3 +298,12 @@ a.l-card:hover .l-visit { color: var(--cyan-hover); }
 ::view-transition-new(bg), ::view-transition-new(nav) { animation: none; }
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.22s; }
 @media (prefers-reduced-motion: reduce) { ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.01s; } }
+
+/* form feedback after sending */
+.l-note { padding: 14px 16px; border: 1px solid var(--border-strong); border-left-width: 2px; font-size: 14.5px; color: var(--muted); }
+.l-note[hidden] { display: none; }
+.l-note strong { color: var(--text); font-family: var(--mono-display); font-weight: 600; margin-right: 4px; }
+.l-note.success { border-left-color: var(--green); background: rgb(var(--contact-rgb) / 0.08); }
+.l-note.error { border-left-color: var(--cyan); background: rgb(var(--accent-rgb) / 0.08); }
+.l-note a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+.l-btn[disabled] { opacity: 0.7; cursor: progress; }

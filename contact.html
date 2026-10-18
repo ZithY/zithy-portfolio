@@ -54,7 +54,9 @@
           <div class="l-total" id="total" hidden></div>
           <label>About your project<textarea name="msg" required placeholder="What does your business do, and what do you need?"></textarea></label>
           <button class="l-btn" type="submit">Send message →</button>
-          <span class="hint">This opens your email app with the message filled in.</span>
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
+          <span class="hint">Your message is sent straight to me, so there's no email app to open.</span>
+          <div class="l-note" id="formStatus" role="status" aria-live="polite" hidden></div>
         </form>
       </div>
 
@@ -124,19 +126,61 @@
     sel.addEventListener('input', refresh);
     refresh();
 
-    document.getElementById('form').addEventListener('submit', (e) => {
+    // Sends the enquiry to my inbox through FormSubmit, with no email app involved.
+    const form = document.getElementById('form');
+    const statusEl = document.getElementById('formStatus');
+    const sendBtn = form.querySelector('button[type="submit"]');
+    const ENDPOINT = 'https://formsubmit.co/ajax/zithywebstudio@gmail.com';
+    const show = (kind, html) => { statusEl.className = 'l-note ' + kind; statusEl.innerHTML = html; statusEl.hidden = false; };
+
+    const clearAddons = () => {
+      addons.forEach((el) => {
+        el.classList.remove('on');
+        const out = el.querySelector('output'), qty = el.querySelector('.l-qty');
+        if (out) out.textContent = '1';
+        if (qty) qty.hidden = true;
+      });
+      sel.dispatchEvent(new Event('change'));
+      refresh();
+    };
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const d = new FormData(e.target), list = picked(), extras = list.reduce((n, x) => n + x.cost, 0), pkg = pkgPrice();
-      const lines = [
-        'Name: ' + d.get('name'),
-        'Business: ' + d.get('business'),
-        'Contact: ' + d.get('reach'),
-        'Package: ' + d.get('plan') + (pkg ? ' (' + money(pkg) + ')' : ''),
-        'Add-ons: ' + (list.length ? list.map((x) => label(x) + ' (' + money(x.cost) + ')').join(', ') : 'none'),
-      ];
-      if (pkg || extras) lines.push('Estimated total: ' + money(pkg + extras));
-      const body = lines.join('\n') + '\n\n' + d.get('msg');
-      location.href = 'mailto:zithywebstudio@gmail.com?subject=' + encodeURIComponent('Website enquiry from ' + d.get('business')) + '&body=' + encodeURIComponent(body);
+      const d = new FormData(form);
+      if (d.get('_honey')) return; // bots fill the hidden field; people never see it
+      const list = picked(), extras = list.reduce((n, x) => n + x.cost, 0), pkg = pkgPrice();
+      const addonText = list.length ? list.map((x) => label(x) + ' (' + money(x.cost) + ')').join(', ') : 'none';
+      const total = pkg || extras ? money(pkg + extras) : 'n/a';
+      const payload = {
+        _subject: 'Website enquiry from ' + d.get('business'),
+        _template: 'table',
+        _captcha: 'false',
+        'Name': d.get('name'),
+        'Business': d.get('business'),
+        'Email or WhatsApp': d.get('reach'),
+        'Package': d.get('plan') + (pkg ? ' (' + money(pkg) + ')' : ''),
+        'Add-ons': addonText,
+        'Estimated total': total,
+        'Message': d.get('msg'),
+      };
+      if (/^\S+@\S+\.\S+$/.test(String(d.get('reach')).trim())) payload._replyto = String(d.get('reach')).trim();
+
+      sendBtn.disabled = true; sendBtn.textContent = 'Sending…'; statusEl.hidden = true;
+      try {
+        const r = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok || String(j.success) === 'false') throw new Error(j.message || 'Request failed');
+        form.reset();
+        clearAddons();
+        show('success', '<strong>Thank you!</strong> Your message has been sent. I\'ll get back to you soon.');
+      } catch (err) {
+        console.warn('Enquiry could not be sent:', err.message);
+        const body = ['Name: ' + d.get('name'), 'Business: ' + d.get('business'), 'Contact: ' + d.get('reach'), 'Package: ' + payload.Package, 'Add-ons: ' + addonText, 'Estimated total: ' + total, '', d.get('msg')].join('\n');
+        const mail = 'mailto:zithywebstudio@gmail.com?subject=' + encodeURIComponent(payload._subject) + '&body=' + encodeURIComponent(body);
+        show('error', '<strong>Sorry, that didn\'t send.</strong> Please try again, or reach me on <a href="https://wa.me/27694518820" target="_blank" rel="noopener">WhatsApp</a> or by <a href="' + mail + '">email</a>.');
+      } finally {
+        sendBtn.disabled = false; sendBtn.textContent = 'Send message →';
+      }
     });
   </script>
 </body>
