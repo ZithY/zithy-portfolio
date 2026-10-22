@@ -203,6 +203,7 @@
   };
 
   const draw = (t) => {
+    if (!w || !h || !base || !base.width || !base.height) return; // window not measured yet (hidden tab or pane)
     const dt = Math.min(t - last, 50); last = t;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);

@@ -8,3 +8,7 @@ js/main.js
 serve.cjs
 .claude/
 work/mst-preview.webp
+mock-*.html
+css/home-mock.css
+js/bgz-mock.js
+old-home-index.html
