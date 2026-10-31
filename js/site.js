@@ -82,3 +82,24 @@ document.querySelectorAll('.l-form select').forEach((sel) => {
   a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><g transform="translate(6.5 6.5) scale(0.46)"><path stroke-width="3.4" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></g></svg><span>Chat on WhatsApp</span>';
   document.body.append(a);
 })();
+
+// Blueprint frame for wide screens: guides, crosses, glows and live coordinates in the empty side margins
+(() => {
+  const add = (cls, style = '') => { const d = document.createElement('div'); d.className = 'bp ' + cls; if (style) d.style.cssText = style; d.setAttribute('aria-hidden', 'true'); document.body.append(d); return d; };
+  add('bp-glow l'); add('bp-glow r'); add('bp-guide l'); add('bp-guide r');
+  [14, 50, 86].forEach((top) => {
+    add('bp-cross', `top: ${top}vh; left: calc(50vw - 540px)`);
+    add('bp-cross', `top: ${top}vh; left: calc(50vw + 540px)`);
+  });
+  const left = add('bp-coord', 'left: calc(50vw - 540px - 78px); top: 14vh; transform: translateY(-22px)');
+  const right = add('bp-coord', 'left: calc(50vw + 540px + 12px); top: 86vh; transform: translateY(8px)');
+  const pad = (n, l) => String(Math.max(0, Math.round(n))).padStart(l, '0');
+  const update = () => {
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    left.innerHTML = 'Y <b>' + pad(scrollY, 4) + '</b>';
+    right.innerHTML = '<b>' + pad((scrollY / max) * 100, 3) + '</b> %';
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+})();
