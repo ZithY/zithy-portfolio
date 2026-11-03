@@ -1,79 +1,233 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ZithY Web Studio | Websites for local businesses</title>
-  <meta name="description" content="Fast, good-looking websites for local businesses in South Africa. Fixed prices from R1,250, a small deposit to start and free support after launch.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/landing.css">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-</head>
-<body>
-  <canvas id="bg" aria-hidden="true"></canvas>
-  <header class="l-nav" id="nav"><div class="in">
-    <nav class="l-links"><a href="work.html">Work</a><a href="pricing.html">Pricing</a></nav>
-    <a class="l-brand" href="index.html"><span class="l-mark"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="zbadge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color: var(--cyan-hover)"/><stop offset="1" style="stop-color: var(--cyan)"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="14" fill="url(#zbadge)"/><rect x="2" y="2" width="60" height="30" rx="14" fill="#fff" fill-opacity=".10"/><path d="M0 0H270V62L120 218H270V280H0V218L150 62H0Z" transform="translate(18.5 18) scale(0.1)" style="fill: var(--cyan-ink)"/></svg></span><span class="l-name">ZithY Web Studio</span></a>
-    <nav class="l-links l-right"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
-    <span class="l-navline"></span>
-  </div></header>
-  <main>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZithY Web Studio | Websites for local businesses</title>
+<meta name="description" content="Fast, good-looking websites for local businesses in South Africa. Fixed prices from R1,250, a small deposit to start and free support after launch.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><style>
+:root{--bg:#09050c;--card:rgb(176 90 200/.07);--card2:rgb(176 90 200/.12);--line:rgb(212 175 55/.2);--text:#f8f1e6;--muted:#cdb9c6;--dim:#947d92;--accent:#d4af37;--accent2:#f2dc9b;--green:#34d399;--r:24px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(60% 50% at 85% -5%,rgb(130 45 150/.4),transparent 70%),radial-gradient(55% 45% at 0% 40%,rgb(120 40 140/.3),transparent 70%),radial-gradient(50% 45% at 60% 100%,rgb(212 175 55/.12),transparent 70%)}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}h1,h2,h3,p,ul{margin:0}ul{padding:0;list-style:none}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:8px;padding:8px 8px 8px 16px;border:1px solid var(--line);background:rgb(10 5 14/.72);backdrop-filter:blur(18px);border-radius:999px;box-shadow:0 14px 40px rgb(0 0 0/.35);width:min(780px,100% - 24px)}
+.nav .brand{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:600;font-size:15px;margin-right:auto}
+.nav a.l{padding:9px 14px;font-size:14px;color:var(--muted);border-radius:999px;transition:background .2s,color .2s}.nav a.l:hover{background:var(--card2);color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:14.5px;background:linear-gradient(135deg,#f8e7a6 0%,#d4af37 48%,#a67c1a 100%);color:#0a0508;transition:transform .2s,box-shadow .2s;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgb(212 175 55/.4)}
+.btn.ghost{background:var(--card2);color:var(--text);border:1px solid var(--line)}.btn.ghost:hover{box-shadow:none;background:rgb(255 255 255/.11)}
+.btn.wa{background:rgb(52 211 153/.14);color:var(--green);border:1px solid rgb(52 211 153/.4)}.btn.wa:hover{box-shadow:0 10px 30px rgb(52 211 153/.22)}
+.hero{padding:150px 0 70px}.hero .wrap{display:grid;grid-template-columns:1fr 1.08fr;gap:44px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid var(--line);background:var(--card);border-radius:999px;font-size:13px;color:var(--muted)}
+.chip i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgb(52 211 153/.16)}
+.hero h1{font-family:'Sora';font-weight:600;font-size:clamp(38px,5.4vw,70px);line-height:1.04;letter-spacing:-.035em;margin:22px 0 20px}
+.grad{background:linear-gradient(120deg,var(--accent2),var(--accent) 55%,#a67c1a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{color:var(--muted);font-size:18px;max-width:46ch}.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s,background .3s}
+.tile:hover{transform:translateY(-4px);border-color:rgb(212 175 55/.4);background:var(--card2)}
+.tile.big{grid-column:1/-1;padding:0}
+.frame{display:flex;align-items:center;gap:6px;padding:11px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--dim)}.frame i{width:8px;height:8px;border-radius:50%;background:rgb(255 255 255/.18)}.frame span{margin-left:8px}
+.frame b{margin-left:auto;color:var(--green);font-weight:500;display:inline-flex;align-items:center;gap:7px}.frame b::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green)}
+.tile.big img{width:100%}
+.stat small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.stat b{display:block;font-family:'Sora';font-size:34px;letter-spacing:-.03em;line-height:1.05}.stat p{color:var(--muted);font-size:14px;margin-top:8px}
+.sec{padding:80px 0}.head{text-align:center;max-width:680px;margin:0 auto 48px}
+.head .chip{margin-bottom:18px}.head h2{font-family:'Sora';font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1.1;letter-spacing:-.03em}.head p{color:var(--muted);margin-top:14px;font-size:17px}
+.works{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.work{display:block;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--card);transition:transform .3s,border-color .3s,box-shadow .3s}
+.work:hover{transform:translateY(-6px);border-color:rgb(212 175 55/.5);box-shadow:0 24px 60px rgb(0 0 0/.4),0 0 40px rgb(212 175 55/.14)}
+.work .img{aspect-ratio:16/10;overflow:hidden}.work img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.work:hover img{transform:scale(1.05)}
+.work .b{padding:24px 26px 26px}.work .tags{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.work .tg{font-size:12px;padding:4px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.work h3{font-family:'Sora';font-weight:600;font-size:22px;letter-spacing:-.02em}.work p{color:var(--muted);margin-top:8px;font-size:15px}
+.work .f{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
+.work .f b{display:inline-flex;align-items:center;gap:8px;font-weight:500}.work .f b.ok{color:var(--green)}.work .f b.wip{color:var(--accent2)}.work .f b::before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor}
+.work .f em{font-style:normal;color:var(--accent2)}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+.plan{display:flex;flex-direction:column;padding:26px 22px;border-radius:var(--r);border:1px solid var(--line);background:var(--card);position:relative;transition:transform .3s,border-color .3s}
+.plan:hover{transform:translateY(-5px);border-color:rgb(212 175 55/.4)}
+.plan.pop{background:linear-gradient(180deg,rgb(212 175 55/.16),rgb(212 175 55/.04));border-color:rgb(212 175 55/.6);box-shadow:0 0 60px rgb(212 175 55/.18);transform:translateY(-10px)}.plan.pop:hover{transform:translateY(-14px)}
+.plan .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:4px 14px;border-radius:999px;background:linear-gradient(135deg,#f8e7a6 0%,#d4af37 48%,#a67c1a 100%);color:#0a0508;font-size:12px;font-weight:600;white-space:nowrap}
+.plan h3{font-family:'Sora';font-weight:600;font-size:17px}.plan .who{font-size:13.5px;color:var(--dim);margin-top:4px;min-height:42px}
+.plan .p{font-family:'Sora';font-weight:600;font-size:38px;letter-spacing:-.04em;margin:14px 0 2px}.plan .d{font-size:12.5px;color:var(--dim)}
+.plan ul{margin:22px 0 24px;display:grid;gap:11px;flex:1;font-size:14.5px;color:var(--muted)}.plan li{display:flex;gap:10px}.plan li svg{flex:none;color:var(--green);margin-top:4px}
+.addons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px}.addons span{padding:10px 18px;border:1px solid var(--line);background:var(--card);border-radius:999px;font-size:14px;color:var(--muted)}.addons b{color:var(--accent2);margin-left:8px;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{padding:28px;border-radius:var(--r);border:1px solid var(--line);background:var(--card)}
+.step .n{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#f8e7a6 0%,#d4af37 48%,#a67c1a 100%);color:#0a0508;font-family:'Sora';font-weight:700;margin-bottom:18px}
+.step h3{font-family:'Sora';font-weight:600;font-size:18px;margin-bottom:8px}.step p{color:var(--muted);font-size:15px}
+.abento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.abento .bio{grid-column:span 4;padding:34px}.abento .bio p{font-size:19px;line-height:1.55}.abento .bio p+p{color:var(--muted);font-size:16.5px;margin-top:16px}
+.abento .zt{grid-column:span 2;display:grid;place-items:center;padding:20px;min-height:230px;background:radial-gradient(70% 70% at 50% 40%,rgb(212 175 55/.2),transparent 70%),var(--card)}
+.abento .zt svg{width:150px;height:auto;filter:drop-shadow(0 0 26px rgb(212 175 55/.5))}
+.abento .sm{grid-column:span 2;padding:22px}.abento .sm b{display:block;font-family:'Sora';font-weight:600;font-size:16px;margin-bottom:6px}.abento .sm span{color:var(--muted);font-size:14px;line-height:1.5}
+.abento .sk{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:20px 26px}.abento .sk span{padding:7px 14px;border-radius:999px;border:1px solid var(--line);font-size:13.5px;color:var(--muted)}.abento .sk em{font-style:normal;color:var(--dim);font-size:13px;margin-right:8px}
+details{border:1px solid var(--line);background:var(--card);border-radius:18px;margin-bottom:10px;transition:border-color .2s}details[open]{border-color:rgb(212 175 55/.4)}
+summary{cursor:pointer;list-style:none;padding:18px 22px;font-family:'Sora';font-weight:500;display:flex;justify-content:space-between;gap:16px}summary::-webkit-details-marker{display:none}summary::after{content:'+';color:var(--accent2);font-size:20px;line-height:1}details[open] summary::after{content:'–'}details p{padding:0 22px 20px;color:var(--muted)}
+.contact{padding:30px 0 80px}.cpanel{display:grid;grid-template-columns:1fr 1.05fr;gap:44px;padding:48px;border-radius:32px;border:1px solid rgb(212 175 55/.4);background:radial-gradient(70% 90% at 100% 0%,rgb(212 175 55/.26),transparent 65%),radial-gradient(50% 70% at 0% 100%,rgb(52 211 153/.08),transparent 60%),var(--card)}
+.cpanel h2{font-family:'Sora';font-weight:600;font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-.03em}.cpanel p{color:var(--muted);margin:14px 0 26px;max-width:40ch}
+.cbtns{display:grid;gap:10px;max-width:340px}.cbtns .btn{justify-content:flex-start}
+.fgrid{display:grid;gap:12px}.fgrid .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fgrid input,.fgrid textarea{width:100%;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:rgb(10 5 14/.6);color:var(--text);font:15.5px 'Inter';outline:0;transition:border-color .2s,box-shadow .2s}
+.fgrid input:focus,.fgrid textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgb(212 175 55/.18)}.fgrid textarea{min-height:110px;resize:vertical}
+.note{padding:14px 18px;border-radius:16px;border:1px solid var(--line);font-size:14.5px;color:var(--muted)}.note[hidden]{display:none}.note strong{color:var(--text);margin-right:4px}.note.success{border-color:rgb(52 211 153/.5);background:rgb(52 211 153/.08)}.note.error{border-color:rgb(212 175 55/.5);background:rgb(212 175 55/.08)}.note a{color:var(--accent2);text-decoration:underline;text-underline-offset:3px}.btn[disabled]{opacity:.7;cursor:progress}
+.pkg{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;border:1px solid rgb(212 175 55/.6);background:linear-gradient(135deg,rgb(212 175 55/.22),rgb(212 175 55/.08))}
+.pkg[hidden]{display:none}.pkg .ck{flex:none;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#f8e7a6 0%,#d4af37 48%,#a67c1a 100%);color:#0a0508;font-weight:700;font-size:15px}
+.pkg small{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.pkg b{display:block;font-family:'Sora';font-weight:600;font-size:17px;line-height:1.25}
+.pkg .pr{margin-left:auto;text-align:right;font-family:'Sora';font-weight:600;font-size:18px;color:var(--accent2);white-space:nowrap}.pkg .pr em{display:block;font:400 12px 'Inter';font-style:normal;color:var(--muted)}
+.pkg .x{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:rgb(255 255 255/.06);color:var(--muted);cursor:pointer;font-size:13px;line-height:1;transition:background .2s,color .2s,border-color .2s}.pkg .x:hover{background:rgb(255 255 255/.14);color:var(--text);border-color:rgb(255 255 255/.25)}
+.pkg.flash{animation:pkgin .9s ease-out}@keyframes pkgin{0%{transform:scale(.97);box-shadow:0 0 0 0 rgb(212 175 55/.7)}60%{box-shadow:0 0 0 14px rgb(212 175 55/0)}100%{transform:none;box-shadow:0 0 0 0 rgb(212 175 55/0)}}
+.plan.chosen{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 0 46px rgb(212 175 55/.28)}
+.plan.chosen .btn{background:rgb(52 211 153/.16);color:var(--green);border:1px solid rgb(52 211 153/.55);box-shadow:none}
+@media(max-width:560px){.pkg{flex-wrap:wrap}.pkg .pr{margin-left:44px;text-align:left}}@media(prefers-reduced-motion:reduce){.pkg.flash{animation:none}}
+footer{border-top:1px solid var(--line);padding:30px 0 44px;color:var(--dim);font-size:13.5px}footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:960px){.hero .wrap,.cpanel,.works,.steps{grid-template-columns:1fr}.plans{grid-template-columns:1fr 1fr}.plan.pop{transform:none}.abento .bio,.abento .zt,.abento .sm{grid-column:1/-1}.hero{padding-top:120px}.cpanel{padding:28px}.nav a.l{display:none}}
+@media(max-width:560px){.plans{grid-template-columns:1fr}.fgrid .two{grid-template-columns:1fr}}
 
-    <section class="hm-hero"><div class="hm-wrap hm-split">
-      <div>
-        <span class="l-status"><i></i>Taking on new projects</span>
-        <h1>Websites that make your business <em>look as good as it is</em></h1>
-        <p class="sub">Proper, fast websites for local businesses. Real work, fair prices, and one person looking after you from first chat to launch.</p>
-        <div class="l-cta"><a class="l-btn" href="work.html">See my work →</a><a class="l-link" href="contact.html">Get a free quote →</a></div>
-        <p class="hm-from">Packages from <b>R1,250</b> once-off<span>·</span>small deposit to start<span>·</span>free support after launch</p>
-      </div>
-      <div class="hm-tilt"><div class="hm-browser"><div class="hm-bar"><i></i><i></i><i></i><span>MST Pumps & Mining Supplies</span><span class="live">Live</span></div><div class="hm-view"><img src="work/mst-hero.jpg" width="784" height="490" alt="Screenshot of the MST Pumps &amp; Mining Supplies website, built by ZithY Web Studio" fetchpriority="high"><a class="over" href="work.html" aria-label="See my work"></a></div></div></div>
-    </div></section>
+.menu{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--card2);color:var(--text);cursor:pointer;place-items:center;padding:0}
+.mpanel{display:none;position:fixed;z-index:29;padding:10px;border:1px solid var(--line);background:rgb(10 5 14/.95);backdrop-filter:blur(18px);border-radius:24px;box-shadow:0 22px 54px rgb(0 0 0/.5);gap:4px}
+.mpanel.open{display:grid}.mpanel .ml{padding:14px 16px;border-radius:14px;font-weight:500}.mpanel .ml:hover,.mpanel .ml.on{background:var(--card2)}.mpanel .btn{margin-top:6px}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgb(52 211 153/.16)}
+@media(max-width:900px){.menu{display:grid}}
 
-    <section class="hm-sec" style="padding-top:10px"><div class="hm-wrap">
-      <div class="hm-built"><span>Built for</span><b>Trades</b><b>Workshops</b><b>Salons</b><b>Clinics</b><b>Firms</b><b>Side hustles</b></div>
-    </div></section>
+.nc{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:14px;padding:8px 8px 8px 18px;border:1px solid var(--line);background:rgb(10 5 14/.72);backdrop-filter:blur(18px);border-radius:999px;box-shadow:0 14px 40px rgb(0 0 0/.35);width:min(900px,100% - 24px);transition:box-shadow .3s,background .3s}
+.nc.scrolled{background:rgb(10 5 14/.9);box-shadow:0 18px 50px rgb(0 0 0/.5)}
+.nc .brand{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:600;font-size:15px}
+.nc .links{display:flex;gap:6px;margin:0 auto}
+.nc .nl{position:relative;padding:9px 14px;font-size:14px;color:var(--muted);border-radius:999px;transition:color .2s,background .2s}
+.nc .nl::after{content:'';position:absolute;left:50%;bottom:3px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--accent2);box-shadow:0 0 8px var(--accent);transform:scale(0);transition:transform .25s}
+.nc .nl:hover{background:var(--card2);color:var(--text)}.nc .nl.on{color:var(--text);background:rgb(212 175 55/.16);box-shadow:inset 0 0 0 1px rgb(212 175 55/.4)}.nc .nl.on::after{transform:scale(1)}
+.nc .quick{display:flex;align-items:center;gap:8px}
+.nc .ic{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:1px solid rgb(52 211 153/.45);background:rgb(52 211 153/.1);color:var(--green);transition:background .2s,box-shadow .2s,transform .2s}
+.nc .ic:hover{background:rgb(52 211 153/.2);box-shadow:0 0 24px rgb(52 211 153/.35);transform:translateY(-2px)}
+.mpanel{top:76px;left:50%;transform:translateX(-50%);width:min(900px,100% - 24px)}
+@media(max-width:900px){.nc .links,.nc .cta{display:none}.nc .quick{margin-left:auto}.nc{gap:10px}}
 
-    <section class="hm-sec"><div class="hm-wrap">
-      <span class="hm-eyebrow">Why ZithY</span>
-      <h2>A website that actually works for you</h2>
-      
-      <div class="hm-why">
-        <div class="l-card top fx-c"><div class="body"><div class="n">01</div><h3>Looks professional</h3><p>Clean, modern design in your colours, so customers trust you at first glance.</p></div></div>
-        <div class="l-card top fx-c"><div class="body"><div class="n">02</div><h3>Gets you messages</h3><p>WhatsApp button, contact and quote forms put enquiries straight in your pocket.</p></div></div>
-        <div class="l-card top fx-c"><div class="body"><div class="n">03</div><h3>You're never alone</h3><p>You deal with me directly, and every package includes free support after launch.</p></div></div>
-      </div>
-    </div></section>
+/* premium touches: a faint velvet weave and a slow gold sheen on the headline words */
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:repeating-linear-gradient(115deg,rgb(255 255 255/.014) 0 2px,transparent 2px 6px)}
+.grad{background-size:220% 100%;animation:sheen 9s ease-in-out infinite}
+@keyframes sheen{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.btn:hover{box-shadow:0 10px 30px rgb(212 175 55/.45)}
+@media(prefers-reduced-motion:reduce){.grad{animation:none}}
+</style></head><body>
+<header class="nc" data-nav><a class="brand" href="#top"><svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" ><defs><linearGradient id="bg28c6b4fc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2dc9b"/><stop offset="1" stop-color="#d4af37"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bg28c6b4fc)"/><rect x="2" y="2" width="60" height="30" rx="14" fill="#fff" fill-opacity=".10"/><path d="M0 0H270V62L120 218H270V280H0V218L150 62H0Z" transform="translate(18.5 18) scale(0.1)" fill="#0a0508"/></svg><span>ZithY Web Studio</span></a><nav class="links"><a class="nl" data-id="work" href="#work">Work</a><a class="nl" data-id="pricing" href="#pricing">Pricing</a><a class="nl" data-id="about" href="#about">About</a><a class="nl" data-id="contact" href="#contact">Contact</a></nav><div class="quick"><a class="ic wa" href="https://wa.me/27694518820?text=Hi%20ZithY%20Web%20Studio%2C%20I'd%20like%20a%20quote%20for%20a%20website." target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><g transform="translate(6.5 6.5) scale(0.46)"><path stroke-width="3.4" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></g></svg></a><a class="btn cta" href="#contact">Get a quote</a></div><button class="menu" id="menu" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></header><div class="mpanel" id="mpanel"><a class="ml" data-id="top" href="#top">Home</a><a class="ml" data-id="work" href="#work">Work</a><a class="ml" data-id="pricing" href="#pricing">Pricing</a><a class="ml" data-id="about" href="#about">About</a><a class="ml" data-id="contact" href="#contact">Contact</a><a class="btn" href="#contact">Get a quote</a></div>
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div><span class="chip"><i></i>Taking on new projects</span>
+  <h1>Websites that make your business <span class="grad">look as good as it is</span></h1>
+  <p class="sub">Proper, fast websites for local businesses. Real work, fair prices, and one person looking after you from first chat to launch.</p>
+  <div class="cta"><a class="btn" href="#contact">Get a free quote →</a><a class="btn ghost" href="#work">See my work</a></div></div>
+  <div class="bento">
+    <div class="tile big"><div class="frame"><i></i><i></i><i></i><span>MST Pumps &amp; Mining Supplies</span><b>Live</b></div><img src="work/mst-hero.jpg" alt="MST website"></div>
+    <div class="tile stat"><small>Packages from</small><b>R1,250</b><p>Once-off, with a small deposit to start.</p></div>
+    <div class="tile stat"><small>After launch</small><b>Free support</b><p>Included with every package.</p></div>
+  </div>
+</div></section>
 
-    <section class="hm-sec"><div class="hm-wrap">
-      <span class="hm-eyebrow">Packages</span>
-      <h2>Start small, grow when you're ready</h2>
-      <p class="hm-lead">The most popular choice is highlighted.</p>
-      <div class="hm-plans">
-  <div class="hm-plan"><h3>Digital Business Card</h3><div class="p">R1,250</div><p>Side hustles and sole traders</p><a class="l-view" href="pricing.html#card">View</a></div>
-  <div class="hm-plan"><h3>Starter</h3><div class="p">R1,950</div><p>Small service businesses</p><a class="l-view" href="pricing.html#starter">View</a></div>
-  <div class="hm-plan pop"><span class="tag">Most popular</span><h3>Business</h3><div class="p">R3,950</div><p>Trades, salons and workshops</p><a class="l-view" href="pricing.html#business">View</a></div>
-  <div class="hm-plan"><h3>Premium</h3><div class="p">R7,500</div><p>Clinics, firms and bookings</p><a class="l-view" href="pricing.html#premium">View</a></div>
-</div>
-    </div></section>
+<section class="sec" id="work"><div class="wrap">
+  <div class="head"><span class="chip">Selected work</span><h2>Real websites for <span class="grad">real businesses</span></h2><p>See what I've built for clients, and click through to explore it yourself.</p></div>
+  <div class="works"><a class="work" href="https://mstindustrial.co.za/" target="_blank" rel="noopener"><div class="img"><img src="work/mst-hero.jpg" alt="MST Pumps &amp; Mining Supplies website"></div><div class="b"><div class="tags"><span class="tg">Website</span><span class="tg">Local business</span></div><h3>MST Pumps &amp; Mining Supplies</h3><p>A multi-page site covering products, custom pressure washers and repairs, with a clear path for customers to request a quote.</p><div class="f"><b class="ok">Live</b><span>Published 2026</span><em>View live site ↗</em></div></div></a><a class="work" href="https://zithy.github.io/lovecakes-rustenburg/" target="_blank" rel="noopener"><div class="img"><img src="work/lovecakes-preview.jpg" alt="Love Cakes Rustenburg website"></div><div class="b"><div class="tags"><span class="tg">Website</span><span class="tg">Local business</span></div><h3>Love Cakes Rustenburg</h3><p>A website for a custom bakery selling cakes, cupcakes and cookies, with a photo gallery and a WhatsApp enquiry form for orders.</p><div class="f"><b class="wip">In progress</b><span>Started 2026</span><em>View work in progress ↗</em></div></div></a></div>
+</div></section>
 
-    <div class="l-cta-band"><div><h2>Want a site like this for your business?</h2><p>Tell me what you do and I'll send a fixed quote.</p></div><a class="l-btn" href="contact.html">Get a free quote →</a></div>
-  </main>
-  <footer class="l-foot">
-    <div class="l-foot-word">ZithY Web Studio<span class="l-glow"></span></div>
-    <div class="l-foot-contact">
-      <a href="https://wa.me/27694518820" target="_blank" rel="noopener"><span>WhatsApp</span> 069 451 8820</a>
-      <a href="mailto:zithywebstudio@gmail.com"><span>Email</span> zithywebstudio@gmail.com</a>
-    </div>
-    <div class="l-foot-meta">
-      <nav><a href="work.html">Work</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
-      <p>© <span id="yr">2026</span> ZithY Web Studio · North-West, South Africa</p>
-    </div>
-  </footer>
-  <script src="js/bg2.js"></script>
-  <script src="js/site.js"></script>
-</body>
-</html>
+<section class="sec" id="pricing"><div class="wrap">
+  <div class="head"><span class="chip">Pricing</span><h2>Affordable websites, <span class="grad">no surprises</span></h2><p>Fixed once-off prices, a deposit to get started and free support after launch.</p></div>
+  <div class="plans"><div class="plan"><h3>Digital Business Card</h3><p class="who">Side hustles and sole traders</p><div class="p">R1,250</div><div class="d">once-off · 30% deposit</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>One-page site</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Your logo, services and reviews</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>WhatsApp button</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>10 days free support</li></ul><a class="btn ghost" href="#contact">Choose this</a></div><div class="plan"><h3>Starter</h3><p class="who">Small service businesses</p><div class="p">R1,950</div><div class="d">once-off · 30% deposit</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>One page with up to 6 sections</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Contact form and WhatsApp button</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Google Business Profile setup</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Basic SEO</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>20 days free support</li></ul><a class="btn ghost" href="#contact">Choose this</a></div><div class="plan pop"><span class="tag">Most popular</span><h3>Business</h3><p class="who">Trades, salons and workshops</p><div class="p">R3,950</div><div class="d">once-off · 40% deposit</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Up to 5 pages</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Everything in Starter</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Quote request form</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Product list or gallery</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>SEO on every page</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>30 days free support</li></ul><a class="btn" href="#contact">Choose this</a></div><div class="plan"><h3>Premium</h3><p class="who">Clinics, firms and bookings</p><div class="p">R7,500</div><div class="d">once-off · 50% deposit</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Up to 10 pages</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Everything in Business</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Booking or quote system</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Analytics</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>24/7 priority support</li></ul><a class="btn ghost" href="#contact">Choose this</a></div></div>
+  <div class="addons"><span>Extra page<b>R350</b></span><span>Logo design<b>R400</b></span></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="head"><span class="chip">How it works</span><h2>Three simple steps</h2></div>
+  <div class="steps"><div class="step"><div class="n">1</div><h3>Tell me about your business</h3><p>A quick chat or message about what you do and what your customers need.</p></div><div class="step"><div class="n">2</div><h3>Approve the design</h3><p>A deposit of 30% to 50%, depending on your package, starts the work, and you approve the design before the full build.</p></div><div class="step"><div class="n">3</div><h3>Go live, with support</h3><p>Your site launches, and every package includes free support after launch.</p></div></div>
+</div></section>
+
+<section class="sec" id="about"><div class="wrap">
+  <div class="head"><span class="chip">About</span><h2>One person, <span class="grad">start to finish</span></h2></div>
+  <div class="abento">
+    <div class="tile bio"><p>Hi, I'm Alex van Niekerk, a 22 year old developer and web designer from North-West, South Africa, and the person behind ZithY Web Studio.</p><p>I build websites for local businesses that are fast, clean and made to bring in customers. You deal with me directly from the first chat to launch, with no agencies, no hand-offs and no jargon.</p></div>
+    <div class="tile zt"><svg viewBox="-20 -20 310 320"><defs><linearGradient id="zf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2dc9b" stop-opacity=".35"/><stop offset="1" stop-color="#d4af37" stop-opacity=".05"/></linearGradient></defs><path d="M0 0H270V62L120 218H270V280H0V218L150 62H0Z" fill="url(#zf)" stroke="#d4af37" stroke-width="3" stroke-linejoin="miter"/></svg></div>
+    <div class="tile sm"><b>You approve it first</b><span>You see the design before the full build starts, and nothing goes live until you're happy with it.</span></div><div class="tile sm"><b>Tested on real devices</b><span>Every site is checked on phones, tablets and desktops before I hand it over.</span></div><div class="tile sm"><b>Fast by default</b><span>Hand-written, lightweight code so your site loads quickly, even on slow mobile data.</span></div><div class="tile sm"><b>I stick around</b><span>Every package includes free support after launch, and you can message me any time.</span></div><div class="tile sm"><b>Honest advice</b><span>I'll tell you what your business needs and what it doesn't, even if that means a cheaper package.</span></div><div class="tile sm"><b>Attention to detail</b><span>Spacing, spelling, links and forms all get checked, so the small things never let the big picture down.</span></div>
+    <div class="tile sk"><em>Tools</em><span>HTML &amp; CSS</span><span>JavaScript</span><span>React</span><span>Electron</span><span>Local SEO</span><span>UI design</span></div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:20px"><div class="wrap" style="max-width:820px">
+  <div class="head" style="margin-bottom:30px"><span class="chip">Questions</span><h2>Quick answers</h2></div>
+  <details><summary>How long does a site take?</summary><p>It depends on the package and how quickly I receive your content, but it typically takes around 1 to 3 business days from start to finish.</p></details><details><summary>Can I upgrade later?</summary><p>Yes. You can start with a Digital Business Card and move up as your business grows. Upgrading also gets you a discount, based on which package you bought before.</p></details><details><summary>What happens when free support ends?</summary><p>You can still message me any time. Small changes are quick to arrange, and extra pages are R350 each.</p></details>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap"><div class="cpanel">
+  <div><h2>Let's build <span class="grad">something good.</span></h2><p>Tell me a bit about your business and I'll get back to you with ideas and a fixed quote. No pressure, no obligation.</p>
+    <div class="cbtns"><a class="btn wa" href="https://wa.me/27694518820?text=Hi%20ZithY%20Web%20Studio%2C%20I'd%20like%20a%20quote%20for%20a%20website." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><g transform="translate(6.5 6.5) scale(0.46)"><path stroke-width="3.4" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></g></svg> WhatsApp 069 451 8820</a><a class="btn ghost" href="tel:+27694518820"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call 069 451 8820</a><a class="btn ghost" href="mailto:zithywebstudio@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg> zithywebstudio@gmail.com</a></div></div>
+  <form class="fgrid" id="form"><div class="pkg" id="pkg" role="status" aria-live="polite" hidden></div><div class="two"><input name="name" placeholder="Your name" required autocomplete="name"><input name="business" placeholder="Business name" required autocomplete="organization"></div><input name="reach" placeholder="Email or WhatsApp number" required><textarea name="msg" placeholder="What does your business do, and what do you need?" required></textarea><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0"><button class="btn" type="submit">Send message →</button><div class="note" id="status" role="status" aria-live="polite" hidden></div></form>
+</div></div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 ZithY Web Studio · North-West, South Africa</span><span>Designed and built by hand.</span></div></footer>
+<script>
+  // Visitors arriving from an old link (such as /pricing.html) land on the matching section.
+  addEventListener('load', () => {
+    const el = location.hash && document.getElementById(location.hash.slice(1));
+    if (el && scrollY < 50) setTimeout(() => el.scrollIntoView(), 60);
+  });
+
+  // "Choose this" on a package shows it clearly at the top of the quote form and marks the card as selected.
+  const pkgEl = document.getElementById('pkg');
+  let chosen = null;
+  const plans = [...document.querySelectorAll('.plan')].map((card) => ({ card, name: card.querySelector('h3').textContent.trim(), price: card.querySelector('.p').textContent.trim(), dep: (card.querySelector('.d').textContent.match(/\d+%/) || [''])[0], btn: card.querySelector('.btn') }));
+  const setPkg = (p) => {
+    chosen = p;
+    plans.forEach((x) => { const on = !!p && x.name === p.name; x.card.classList.toggle('chosen', on); x.btn.textContent = on ? 'Selected ✓' : 'Choose this'; });
+    if (!p) { pkgEl.hidden = true; return; }
+    pkgEl.innerHTML = '<span class="ck">✓</span><div><small>Selected package</small><b>' + p.name + '</b></div><span class="pr">' + p.price + '<em>' + p.dep + ' deposit · once-off</em></span><button type="button" class="x" aria-label="Remove the selected package">✕</button>';
+    pkgEl.hidden = false; pkgEl.classList.remove('flash'); void pkgEl.offsetWidth; pkgEl.classList.add('flash');
+  };
+  plans.forEach((x) => x.btn.addEventListener('click', () => setPkg(x)));
+  pkgEl.addEventListener('click', (e) => { if (e.target.closest('.x')) setPkg(null); });
+  const pkgText = () => (chosen ? chosen.name + ' (' + chosen.price + ', ' + chosen.dep + ' deposit)' : 'Not chosen yet');
+
+  // Sends the enquiry to my inbox through FormSubmit, so no email app opens.
+  const form = document.getElementById('form'), statusEl = document.getElementById('status'), sendBtn = form.querySelector('button[type="submit"]');
+  const ENDPOINT = 'https://formsubmit.co/ajax/zithywebstudio@gmail.com';
+  const show = (kind, html) => { statusEl.className = 'note ' + kind; statusEl.innerHTML = html; statusEl.hidden = false; };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const d = new FormData(form);
+    if (d.get('_honey')) return; // bots fill the hidden field, people never see it
+    const reach = String(d.get('reach')).trim();
+    const payload = { _subject: 'Website enquiry from ' + d.get('business'), _template: 'table', _captcha: 'false', 'Name': d.get('name'), 'Business': d.get('business'), 'Email or WhatsApp': reach, 'Package': pkgText(), 'Message': d.get('msg') };
+    if (/^\S+@\S+\.\S+$/.test(reach)) payload._replyto = reach;
+    sendBtn.disabled = true; sendBtn.textContent = 'Sending…'; statusEl.hidden = true;
+    try {
+      const r = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || String(j.success) === 'false') throw new Error(j.message || 'Request failed');
+      form.reset(); setPkg(null);
+      show('success', "<strong>Thank you!</strong> Your message has been sent. I'll get back to you soon.");
+    } catch (err) {
+      console.warn('Enquiry could not be sent:', err.message);
+      const body = ['Name: ' + d.get('name'), 'Business: ' + d.get('business'), 'Contact: ' + reach, 'Package: ' + pkgText(), '', d.get('msg')].join('\n');
+      const mail = 'mailto:zithywebstudio@gmail.com?subject=' + encodeURIComponent(payload._subject) + '&body=' + encodeURIComponent(body);
+      show('error', '<strong>Sorry, that didn\'t send.</strong> Please try again, or reach me on <a href="https://wa.me/27694518820" target="_blank" rel="noopener">WhatsApp</a> or by <a href="' + mail + '">email</a>.');
+    } finally { sendBtn.disabled = false; sendBtn.textContent = 'Send message →'; }
+  });
+</script>
+<script>
+  // shared behaviour: highlight the section you are on, scroll progress, compact bar after scrolling, phone menu
+  (() => {
+    const nav = document.querySelector('[data-nav]'), links = [...document.querySelectorAll('.nl, .ml')];
+    const ids = ['work', 'pricing', 'about', 'contact'], ind = document.querySelector('.ind');
+    const spy = () => {
+      let cur = '';
+      ids.forEach((id) => { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top < innerHeight * 0.45) cur = id; });
+      links.forEach((a) => a.classList.toggle('on', a.dataset.id === cur));
+      nav.classList.toggle('scrolled', scrollY > 24);
+      const max = document.documentElement.scrollHeight - innerHeight;
+      document.documentElement.style.setProperty('--p', (max > 0 ? (scrollY / max) * 100 : 0) + '%');
+      if (ind) { const a = document.querySelector('.nl.on'); if (!a) ind.style.opacity = 0; else { ind.style.opacity = 1; ind.style.width = a.offsetWidth + 'px'; ind.style.transform = 'translateX(' + (a.offsetLeft - 4) + 'px)'; } }
+    };
+    addEventListener('scroll', spy, { passive: true }); addEventListener('resize', spy); addEventListener('load', spy); spy();
+    const menu = document.getElementById('menu'), panel = document.getElementById('mpanel');
+    const set = (o) => { panel.classList.toggle('open', o); menu.setAttribute('aria-expanded', String(o)); };
+    menu.addEventListener('click', () => set(!panel.classList.contains('open')));
+    panel.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+  })();
+</script>
+</body></html>
