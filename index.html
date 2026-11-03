@@ -128,6 +128,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 .ba{position:relative;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);box-shadow:0 30px 80px rgb(0 0 0/.45),0 0 50px rgb(212 175 55/.1);user-select:none;-webkit-user-select:none;touch-action:pan-y}
 .bar{display:flex;align-items:center;gap:6px;padding:11px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--dim)}
 .bar i{width:8px;height:8px;border-radius:50%;background:rgb(255 255 255/.18)}.bar span{margin-left:8px}
+.bar em{margin-left:auto;font-style:normal;font-weight:600;color:#0a0508;background:linear-gradient(135deg,#f8e7a6,#d4af37 50%,#a67c1a);padding:3px 11px;border-radius:999px;font-size:11.5px;letter-spacing:.04em;white-space:nowrap}
 .stage{position:relative;aspect-ratio:16/10;overflow:hidden;cursor:ew-resize}
 .stage>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
 .before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--p,50%)) 0 0)}
@@ -182,7 +183,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;bac
   <div class="head"><span class="chip">Before &amp; after</span><h2>From <span class="grad">outdated</span> to built for industry</h2><p>Drag the slider to see MST Pumps &amp; Mining Supplies before and after the redesign.</p></div>
 
   <div class="ba" id="ba">
-    <div class="bar"><i></i><i></i><i></i><span>MST Pumps &amp; Mining Supplies</span></div>
+    <div class="bar"><i></i><i></i><i></i><span>MST Pumps &amp; Mining Supplies</span><em>Business Package</em></div>
     <div class="stage" id="stage">
       <img src="work/mst-after.jpg?v=2" alt="MST website after the redesign">
       <div class="before"><div class="old" id="old" aria-label="MST website before the redesign (recreated mockup)">
@@ -207,7 +208,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 
   <div class="ba-stats">
     <div class="ba-stat"><small>Before</small><b>Slow &amp; dated</b><p>Hard to read, not mobile friendly, no clear way to get a quote.</p></div>
-    <div class="ba-stat"><small>After</small><b>Clear &amp; fast</b><p>Modern layout, works on any phone, quote button on every page.</p></div>
+    <div class="ba-stat"><small>After &middot; Business Package</small><b>Clear &amp; fast</b><p>Modern layout, works on any phone, quote button on every page.</p></div>
     <div class="ba-stat"><small>Result</small><b>More enquiries</b><p>A site that looks as solid as the business behind it.</p></div>
   </div>
 </div></section>
