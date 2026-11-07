@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zithy.github.io/zithy-portfolio/sitemap.xml
